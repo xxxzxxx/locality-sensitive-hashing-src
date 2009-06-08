@@ -33,7 +33,7 @@ public class HashFunctionVector implements Serializable{
 	 */
 	public int[] getIntHashVectorByHamming(int[] x){
 		int[] result = new int[K];
-		for(int i = 0 ; i < K ;i++){
+		for(int i = 0 ; i < K ; i++){
 			HashFunction func = hashFunctionList.get(i);
 			result[i] = func.getHashValueByHamming(x);			
 		}
@@ -47,7 +47,7 @@ public class HashFunctionVector implements Serializable{
 	 */
 	public int[] getIntHashVectorByHamming(Integer[] x){
 		int[] result = new int[K];
-		for(int i = 0 ; i < K ;i++){
+		for(int i = 0 ; i < K ; i++){
 			HashFunction func = hashFunctionList.get(i);
 			result[i] = func.getHashValueByHamming(x);			
 		}
@@ -62,7 +62,7 @@ public class HashFunctionVector implements Serializable{
 	 */
 	public int[] getIntHashVectorByDense(double[] x){
 		int[] result = new int[K];
-		for(int i = 0 ; i < K ;i++){
+		for(int i = 0 ; i < K ; i++){
 			HashFunction func = hashFunctionList.get(i);
 			result[i] = func.getHashValueByDense(x);			
 		}
@@ -76,7 +76,7 @@ public class HashFunctionVector implements Serializable{
 	 */
 	public int[] getIntHashVectorBySparse(Map<Integer, ? extends Number> x){
 		int[] result = new int[K];
-		for(int i = 0 ; i < K ;i++){
+		for(int i = 0 ; i < K ; i++){
 			HashFunction func = hashFunctionList.get(i);
 			result[i] = func.getHashValueBySparse(x);			
 		}
@@ -91,7 +91,7 @@ public class HashFunctionVector implements Serializable{
 	 */
 	public String getStringHashVectorByHamming(int[] x){
 		String result = "";
-		for(int i = 0 ; i < K ;i++){
+		for(int i = 0 ; i < K ; i++){
 			HashFunction func = hashFunctionList.get(i);
 			result += func.getHashValueByHamming(x);			
 		}
@@ -105,7 +105,7 @@ public class HashFunctionVector implements Serializable{
 	 */
 	public String getStringHashVectorByHamming(Integer[] x){
 		String result = "";
-		for(int i = 0 ; i < K ;i++){
+		for(int i = 0 ; i < K ; i++){
 			HashFunction func = hashFunctionList.get(i);
 			result += func.getHashValueByHamming(x);			
 		}
@@ -120,7 +120,7 @@ public class HashFunctionVector implements Serializable{
 	 */
 	public String getStringHashVectorByDense(double[] x){
 		String result = "";
-		for(int i = 0 ; i < K ;i++){
+		for(int i = 0 ; i < K ; i++){
 			HashFunction func = hashFunctionList.get(i);
 			result += func.getHashValueByDense(x);			
 		}
@@ -129,7 +129,7 @@ public class HashFunctionVector implements Serializable{
 	
 	public String getStringHashVectorBySparse(Map<Integer, ? extends Number> x){
 		String result = "";
-		for(int i = 0 ; i < K ;i++){
+		for(int i = 0 ; i < K ; i++){
 			HashFunction func = hashFunctionList.get(i);
 			result += func.getHashValueBySparse(x);			
 		}
