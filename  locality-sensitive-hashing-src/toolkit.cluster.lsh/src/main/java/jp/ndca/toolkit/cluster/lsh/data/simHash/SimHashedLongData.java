@@ -20,7 +20,7 @@ public class SimHashedLongData {
 	 * @param limit
 	 * @return 
 	 */
-	public int[] serchWithinThreshhold( long vectorY , int threshold ){
+	public int[] searchWithinThreshhold( long vectorY , int threshold ){
 		List<Integer> resultArray = new ArrayList<Integer>();
 		for(int i = 0; i < size() ; i++){
 			long diff = simHashLongData[i] ^ vectorY;
@@ -41,7 +41,7 @@ public class SimHashedLongData {
 	 * @param limit
 	 * @return 
 	 */
-	public int[] serchBetWeenThreshhold( long vectorY , int start , int end ){
+	public int[] searchBetWeenThreshhold( long vectorY , int start , int end ){
 		List<Integer> resultArray = new ArrayList<Integer>();
 		for(int i = 0; i < size() ; i++){
 			long diff = simHashLongData[i] ^ vectorY;

@@ -23,7 +23,7 @@ public class SimHashHandlerWrapperLong {
 	 * @param vectorX　：　変換前のベクトル
 	 * @return : simHash値
 	 */
-	public long getSimHashByLong( Map<Integer,? extends Number> vectorX ){
+	public long getSimHashByLong( Map<Integer, ? extends Number> vectorX ){
 		String str = hfv.getStringHashVectorBySparse(vectorX);
 		return BinaryStringToLong(str);
 	}
@@ -32,10 +32,10 @@ public class SimHashHandlerWrapperLong {
 		long num =0l;
 		char chara = str.charAt(0);
 		if(chara=='1' && str.length()==64){
-			str = '0'+str.substring(1);
+			str = '0' + str.substring(1);
 			num = Long.parseLong(str,2);
 			num = num ^ 9223372036854775807l;
-			num = -1*(num+1);
+			num = -1 * (num+1);
 		}else{
 			num = Long.parseLong(str,2);
 		}
