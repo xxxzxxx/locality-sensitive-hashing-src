@@ -7,7 +7,7 @@ import jp.ndca.toolkit.cluster.lsh.hash.HashFunction;
 import jp.ndca.toolkit.cluster.lsh.math.random.CauchyRandomNumber;
 
 /**
- * ND_HashFunction を使ってハッシュ関数を生成したり、LSHの変換パラメータL,Kを取得するHandlerクラスです。
+ * ハッシュ関数 CD_HashFunction を生成したり、LSHの変換パラメータ L , K を取得するHandlerクラスです。
  * 
  * @author hattori_tsukasa
  *
@@ -44,17 +44,17 @@ public class CD_HashFunctionHandler implements PstableHandler{
 	 * @param n : 対象データの総数(例:検索の場合なら全検索対象データ)
 	 * @param r : ハッシュ関数 (a*x+b)/r で用いられるr
 	 */
-	public CD_HashFunctionHandler(double p1 , double p2 , int n , int dimension , double r){
+	public CD_HashFunctionHandler( double p1 , double p2 , int n , int dimension , double r ){
 		
 		this.p1  = p1;
 		this.p2  = p2;
 		this.r   = r;
-		this.dimension = dimension;
 		this.rho = Math.log(1/p1) /Math.log(1/p2);
+		this.dimension = dimension;
 		
 		//切り上げ
-		this.L = (int)Math.ceil(Math.pow(n ,rho));
-		this.K = (int)(Math.log(n) / Math.log(1/p2));
+		this.L = (int)Math.ceil( Math.pow(n, rho) );
+		this.K = (int)( Math.log(n) / Math.log(1/p2) );
 		
 	}
 	
@@ -88,7 +88,7 @@ public class CD_HashFunctionHandler implements PstableHandler{
 	@Override
 	public HashFunction newInstanceHashFunction(){
 		double[] a = makeHashFunction_Vector_a();
-		return new CD_HashFunction( a , makeHashFunction_Scholar_b(), r);
+		return new CD_HashFunction( a, makeHashFunction_Scholar_b(), r );
 		
 	}
 	
@@ -119,8 +119,8 @@ public class CD_HashFunctionHandler implements PstableHandler{
 	}
 
 	@Override
-	public void makeHashFunctionList(int k) {
-		for( int i=0 ; i < k ; i++){
+	public void makeHashFunctionList( int k ) {
+		for( int i=0 ; i < k ; i++ ){
 			HashFunction hf = newInstanceHashFunction();
 			hfl.add(hf);
 		}

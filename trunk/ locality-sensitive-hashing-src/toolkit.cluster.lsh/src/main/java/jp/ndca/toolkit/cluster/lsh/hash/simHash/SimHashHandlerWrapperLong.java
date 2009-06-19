@@ -28,16 +28,17 @@ public class SimHashHandlerWrapperLong {
 		return BinaryStringToLong(str);
 	}
 	
-	private static long BinaryStringToLong(String str){
+	private static long BinaryStringToLong( String str ){
 		long num =0l;
 		char chara = str.charAt(0);
-		if(chara=='1' && str.length()==64){
+		if( chara=='1' && str.length() == 64 ){
 			str = '0' + str.substring(1);
-			num = Long.parseLong(str,2);
+			num = Long.parseLong( str, 2 );
 			num = num ^ 9223372036854775807l;
-			num = -1 * (num+1);
-		}else{
-			num = Long.parseLong(str,2);
+			num = -1 * ( num+1 );
+		}
+		else{
+			num = Long.parseLong( str, 2 );
 		}
 		return num;
 	}

@@ -4,13 +4,13 @@ import jp.ndca.toolkit.cluster.lsh.hash.HashProbability;
 
 public class CD_HashProbability implements HashProbability{
 
-	private static double coffi = 1/Math.PI;
+	private static double coffi = 1 / Math.PI;
 
 	private double c;
 	
 	private double r;
 		
-	public CD_HashProbability(double c , double r){
+	public CD_HashProbability( double c, double r ){
 		this.c = c;
 		this.r = r;
 	}
@@ -37,7 +37,7 @@ public class CD_HashProbability implements HashProbability{
 	 * 引数を元にした安定分布(Cauchy分布)のGoodHashProbability(=p1)を取得します。
 	 * @return p1
 	 */
-	public double getGoodHashProb(double _r){
+	public double getGoodHashProb( double _r ){
 		double x = _r;
 		return calculate_P(x);
 	}
@@ -46,8 +46,8 @@ public class CD_HashProbability implements HashProbability{
 	 * 引数を元にした安定分布(Cauchy分布)のBadHashProbability(=p2)を取得します。
 	 * @return p1
 	 */	
-	public double getBadHashProb(double _c , double _r){
-		double x = _r/_c;
+	public double getBadHashProb( double _c , double _r ){
+		double x = _r / _c;
 		return calculate_P(x);
 	}
 	
@@ -57,8 +57,8 @@ public class CD_HashProbability implements HashProbability{
 	 * @param x
 	 * @return
 	 */
-	private double calculate_P(double x){	
-		double firstTerm = 2.0d * coffi * Math.atan(x);
+	private double calculate_P( double x ){	
+		double firstTerm   =  2.0d * coffi * Math.atan(x);
 		double secondTerm  =  coffi * Math.log(1.0d + (x * x)) / x;
 		return firstTerm - secondTerm;
 	}

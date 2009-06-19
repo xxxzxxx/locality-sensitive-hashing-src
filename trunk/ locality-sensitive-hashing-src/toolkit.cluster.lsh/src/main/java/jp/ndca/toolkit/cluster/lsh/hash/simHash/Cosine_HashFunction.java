@@ -15,10 +15,10 @@ public class Cosine_HashFunction implements HashFunction{
 	}
 
 	@Override
-	public int getHashValueByHamming(short[] x) {
+	public int getHashValueByHamming( short[] x ) {
 		double result = 0.0d;
 		for(int i=0 ; i < x.length ; i++){
-			result += r[x[i]];
+			result += r[ x[i] ];
 		}
 		if(result >= 0)
 			return 1;
@@ -27,10 +27,10 @@ public class Cosine_HashFunction implements HashFunction{
 	}
 
 	@Override
-	public int getHashValueByHamming(Short[] x) {
+	public int getHashValueByHamming( Short[] x ) {
 		double result = 0.0d;
 		for(int i=0 ; i < x.length ; i++){
-			result += r[x[i]];
+			result += r[ x[i] ];
 		}
 		if(result >= 0)
 			return 1;
@@ -39,10 +39,10 @@ public class Cosine_HashFunction implements HashFunction{
 	}
 
 	@Override
-	public int getHashValueByHamming(int[] x) {
+	public int getHashValueByHamming( int[] x ) {
 		double result = 0.0d;
 		for(int i=0 ; i < x.length ; i++){
-			result += r[x[i]];
+			result += r[ x[i] ];
 		}
 		if(result >= 0)
 			return 1;
@@ -51,10 +51,10 @@ public class Cosine_HashFunction implements HashFunction{
 	}
 
 	@Override
-	public int getHashValueByHamming(Integer[] x) {
+	public int getHashValueByHamming( Integer[] x ) {
 		double result = 0.0d;
 		for(int i=0 ; i < x.length ; i++){
-			result += r[x[i]];
+			result += r[ x[i] ];
 		}
 		if(result >= 0)
 			return 1;
@@ -63,7 +63,7 @@ public class Cosine_HashFunction implements HashFunction{
 	}
 
 	@Override
-	public int getHashValueByDense(float[] x) {
+	public int getHashValueByDense( float[] x ) {
 		double result = 0.0d;
 		for(int i=0 ; i < x.length ; i++){
 			result += x[i] * r[i];
@@ -75,7 +75,7 @@ public class Cosine_HashFunction implements HashFunction{
 	}
 
 	@Override
-	public int getHashValueByDense(Float[] x) {
+	public int getHashValueByDense( Float[] x ) {
 		double result = 0.0d;
 		for(int i=0 ; i < x.length ; i++){
 			result += x[i] * r[i];
@@ -87,7 +87,7 @@ public class Cosine_HashFunction implements HashFunction{
 	}
 	
 	@Override
-	public int getHashValueByDense(Double[] x) {
+	public int getHashValueByDense( Double[] x ) {
 		double result = 0.0d;
 		for(int i=0 ; i < x.length ; i++){
 			result += x[i] * r[i];
@@ -99,7 +99,7 @@ public class Cosine_HashFunction implements HashFunction{
 	}
 
 	@Override
-	public int getHashValueByDense(double[] x) {
+	public int getHashValueByDense( double[] x ) {
 		double result = 0.0d;
 		for(int i=0 ; i < x.length ; i++){
 			result += x[i] * r[i];
@@ -114,14 +114,13 @@ public class Cosine_HashFunction implements HashFunction{
 	public int getHashValueBySparse(Map<Integer, ? extends Number> x) {
 		double result = 0.0d;
 		Set<Integer> keys = x.keySet();
-		for(Integer key:keys){
-			result += r[key]*x.get(key).doubleValue();
+		for( Integer key : keys ){
+			result += r[key] * x.get(key).doubleValue();
 		}
 		if(result >= 0)
 			return 1;
 		else
 			return 0;
 	}
-
 	
 }

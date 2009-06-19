@@ -12,14 +12,14 @@ public class CD_HashFunction implements HashFunction{
 	double b;
 	double r;
 	
-	public CD_HashFunction( double[] a , double b , double r ){
+	public CD_HashFunction( double[] a, double b, double r ){
 		this.a = a;
 		this.b = b;
 		this.r = r;		
 	}
 	
 	@Override
-	public int getHashValueByHamming(int[] x){
+	public int getHashValueByHamming( int[] x ){
 		double result = 0.0d;
 		for(int i=0 ; i < x.length ; i++){
 			result += a[x[i]];
@@ -28,7 +28,7 @@ public class CD_HashFunction implements HashFunction{
 	}
 	
 	@Override
-	public int getHashValueByHamming(Integer[] x) {
+	public int getHashValueByHamming( Integer[] x ) {
 		double result = 0.0d;
 		for(int i=0 ; i < x.length ; i++){
 			result += a[x[i]];
@@ -37,7 +37,7 @@ public class CD_HashFunction implements HashFunction{
 	}
 	
 	@Override
-	public int getHashValueByHamming(short[] x) {
+	public int getHashValueByHamming( short[] x ) {
 		double result = 0.0d;
 		for(int i=0 ; i < x.length ; i++){
 			result += a[x[i]];
@@ -46,7 +46,7 @@ public class CD_HashFunction implements HashFunction{
 	}
 
 	@Override
-	public int getHashValueByHamming(Short[] x) {
+	public int getHashValueByHamming( Short[] x ) {
 		double result = 0.0d;
 		for(int i=0 ; i < x.length ; i++){
 			result += a[x[i]];
@@ -55,7 +55,7 @@ public class CD_HashFunction implements HashFunction{
 	}
 
 	@Override
-	public int getHashValueByDense(double[] x){
+	public int getHashValueByDense( double[] x ){
 		double result = 0.0d;
 		for(int i=0 ; i < x.length ; i++){
 			result += x[i] * a[i];
@@ -64,7 +64,7 @@ public class CD_HashFunction implements HashFunction{
 	}
 	
 	@Override
-	public int getHashValueByDense(Double[] x){
+	public int getHashValueByDense( Double[] x ){
 		double result = 0.0d;
 		for(int i=0 ; i < x.length ; i++){
 			result += x[i] * a[i];
@@ -73,7 +73,16 @@ public class CD_HashFunction implements HashFunction{
 	}
 
 	@Override
-	public int getHashValueByDense(float[] x) {
+	public int getHashValueByDense( float[] x ) {
+		double result = 0.0d;
+		for( int i=0 ; i < x.length ; i++ ){
+			result += x[i] * a[i];
+		}
+		return (int)((result+b)/r);
+	}
+
+	@Override
+	public int getHashValueByDense( Float[] x ) {
 		double result = 0.0d;
 		for(int i=0 ; i < x.length ; i++){
 			result += x[i] * a[i];
@@ -82,20 +91,11 @@ public class CD_HashFunction implements HashFunction{
 	}
 
 	@Override
-	public int getHashValueByDense(Float[] x) {
-		double result = 0.0d;
-		for(int i=0 ; i < x.length ; i++){
-			result += x[i] * a[i];
-		}
-		return (int)((result+b)/r);
-	}
-
-	@Override
-	public int getHashValueBySparse(Map<Integer,? extends Number> x){
+	public int getHashValueBySparse( Map<Integer, ? extends Number> x ){
 		double result = 0.0d;
 		Set<Integer> keys = x.keySet();
-		for(Integer key:keys){
-			result += a[key]*x.get(key).doubleValue();
+		for( Integer key : keys ){
+			result += a[key] * x.get(key).doubleValue();
 		}
 		return (int)((result+b)/r);
 	}

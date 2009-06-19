@@ -11,12 +11,10 @@ public class Permutation {
 	 * @return
 	 */
 	public static double combination(int leftfix,int rightfix ){
-		double left =factorial(BigInteger.valueOf(leftfix));
-		double middle =factorial(BigInteger.valueOf(leftfix-rightfix));
-		
-		double right =factorial(BigInteger.valueOf(rightfix));
-		
-		return left/(middle*right);
+		double left   = factorial( BigInteger.valueOf(leftfix) );
+		double middle = factorial( BigInteger.valueOf(leftfix - rightfix) );
+		double right  = factorial( BigInteger.valueOf(rightfix) );
+		return left / ( middle * right );
 	}
 
 	/**
@@ -35,27 +33,30 @@ public class Permutation {
 	        }
 	        public void run() {
 	            ret = BigInteger.ONE;
-	            while (val.compareTo(BigInteger.ONE) > 0) {
+	            while ( val.compareTo(BigInteger.ONE ) > 0) {
 	                ret = ret.multiply(val);
 	                val = val.subtract(TWO);
 	            }
 	        }
 	    }
 	    // (n-1)!!を計算させる。
-	    FactorialThread ft = new FactorialThread(val.subtract(BigInteger.ONE));
+	    FactorialThread ft = new FactorialThread( val.subtract(BigInteger.ONE) );
 	    ft.start();
 	    
 	    // n!!を計算する。
 	    BigInteger ret = BigInteger.ONE;
-	    while (val.compareTo(BigInteger.ONE) > 0) {
+	    while ( val.compareTo(BigInteger.ONE) > 0 ) {
 	        ret = ret.multiply(val);
 	        val = val.subtract(TWO);
 	    }
 	    
-	    try{ ft.join(); }catch (Exception e) {}
+	    try{ 
+	    	ft.join();
+	    }
+	    catch (Exception e) {}
 	    
 	    // n!! * (n-1)!! = n!
-	    return ret.multiply(ft.ret).doubleValue();
+	    return ret.multiply( ft.ret ).doubleValue();
 	}
 
 }

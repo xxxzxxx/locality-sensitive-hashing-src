@@ -7,7 +7,7 @@ package jp.ndca.toolkit.cluster.lsh.math.integral;
  */
 public interface Integral {
 	
-	public abstract void setInterval(double start , double end , double strip);
+	public abstract void setInterval( double start, double end, double strip );
 	
 	public abstract double executeIntegral();
 

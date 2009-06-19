@@ -17,7 +17,7 @@ public class HashFunctionVectorWriter {
 	ObjectOutputStream oos = null;
 	
 	public void setObjectOutputStream( String filePath ) throws IOException{
-		oos = new ObjectOutputStream(new FileOutputStream(filePath));
+		oos = new ObjectOutputStream( new FileOutputStream(filePath) );
 	}
 	
 	public void writeObject( HashFunctionVector func ) throws IOException{

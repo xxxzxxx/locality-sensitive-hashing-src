@@ -43,17 +43,17 @@ public class ND_HashFunctionHandler implements PstableHandler{
 	 * @param n 対象データの総数(例:検索の場合なら全検索対象データ)
 	 * @param r　ハッシュ関数 (a*x+b)/r で用いられるr
 	 */
-	public ND_HashFunctionHandler(double p1 , double p2 , int n , int dimension , double r){
+	public ND_HashFunctionHandler( double p1, double p2, int n, int dimension, double r ){
 		
 		this.p1  = p1;
 		this.p2  = p2;
 		this.r   = r;
 		this.dimension = dimension;
-		this.rho = Math.log(1/p1) /Math.log(1/p2);
+		this.rho = Math.log(1/p1) / Math.log(1/p2);
 		
 		//切り上げ
-		this.L = (int)Math.ceil(Math.pow(n ,rho));
-		this.K = (int)(Math.log(n) / Math.log(1/p2));
+		this.L = (int)Math.ceil( Math.pow(n, rho) );
+		this.K = (int)( Math.log(n) / Math.log(1/p2) );
 		
 	}
 	
@@ -87,8 +87,8 @@ public class ND_HashFunctionHandler implements PstableHandler{
 	@Override
 	public HashFunction newInstanceHashFunction(){
 		double[] a = makeHashFunction_Vector_a();
-		System.out.println("a="+a.length);
-		return new ND_HashFunction( a , makeHashFunction_Scholar_b(), r);
+		System.out.println( "a=" + a.length );
+		return new ND_HashFunction( a, makeHashFunction_Scholar_b(), r );
 	}
 	
 	/**

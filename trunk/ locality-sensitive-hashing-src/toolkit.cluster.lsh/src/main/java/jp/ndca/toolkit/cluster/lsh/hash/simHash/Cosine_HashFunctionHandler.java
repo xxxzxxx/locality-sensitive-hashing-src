@@ -44,15 +44,15 @@ public class Cosine_HashFunctionHandler implements SimHashHandler{
 	}
 	
 	@Override
-	public void makeHashFunctionList(int reDimension) {
+	public void makeHashFunctionList( int reDimension ) {
 		for( int i=0 ; i < reDimension ; i++){
 			HashFunction hf = newInstanceHashFunction();
-			hfl.add(hf);
+			hfl.add( hf );
 		}		
 	}
 
 	/**
-	 * hash関数　 if(r*u>=0) 1 else 0 に用いるコーシー分布乱数ベクトルrを取得します。rは乱数生成で毎回作成しています。
+	 * hash関数　 if(r*u>=0) 1 else 0 に用いる正規分布乱数ベクトルrを取得します。rは乱数生成で毎回作成しています。
 	 * @return r ベクトル(size data_Dimension)
 	 */
 	private double[] makeHashFunction_Vector_r(){
