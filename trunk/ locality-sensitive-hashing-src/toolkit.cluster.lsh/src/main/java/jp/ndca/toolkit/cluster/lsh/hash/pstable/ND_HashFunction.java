@@ -88,7 +88,7 @@ public class ND_HashFunction implements HashFunction{
 	}
 
 	@Override
-	public int getHashValueByDense(Float[] x) {
+	public int getHashValueByDense( Float[] x ) {
 		double result = 0.0d;
 		for(int i=0 ; i < x.length ; i++){
 			result += x[i] * a[i];
@@ -97,7 +97,7 @@ public class ND_HashFunction implements HashFunction{
 	}
 
 	@Override
-	public int getHashValueBySparse(Map<Integer,? extends Number> x){
+	public int getHashValueBySparse( Map<Integer,? extends Number> x ){
 		double result = 0.0d;
 		Set<Integer> keys = x.keySet();
 		for( Integer key : keys ){
