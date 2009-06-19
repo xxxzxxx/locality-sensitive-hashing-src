@@ -4,8 +4,6 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
-import jp.ndca.toolkit.cluster.lsh.exception.UnsuitableDemensionException;
-
 /**
  * LSHハッシュ値を生成するクラスです。
  * @author hattori_tsukasa
@@ -13,17 +11,15 @@ import jp.ndca.toolkit.cluster.lsh.exception.UnsuitableDemensionException;
  */
 @SuppressWarnings("serial")
 public class HashFunctionVector implements Serializable{
-	
-	//hashFunctionVector (本来mapで管理すべだが、memory節約のためListで管理)
+
 	List<HashFunction> hashFunctionList;
 	
 	//vector demension
 	int K;
 	
 	public HashFunctionVector( List<HashFunction> hashFunctionList ){
-		if( hashFunctionList.size() != K ) throw new UnsuitableDemensionException();
+		this.K = hashFunctionList.size();
 		this.hashFunctionList = hashFunctionList;
-		this.K =hashFunctionList.size();
 	}
 	
 	/**
@@ -31,7 +27,7 @@ public class HashFunctionVector implements Serializable{
 	 * @param x
 	 * @return LSH Hash Value
 	 */
-	public int[] getIntHashVectorByHamming(int[] x){
+	public int[] getIntHashVectorByHamming( int[] x ){
 		int[] result = new int[K];
 		for(int i = 0 ; i < K ; i++){
 			HashFunction func = hashFunctionList.get(i);
@@ -45,7 +41,7 @@ public class HashFunctionVector implements Serializable{
 	 * @param x
 	 * @return LSH Hash Value
 	 */
-	public int[] getIntHashVectorByHamming(Integer[] x){
+	public int[] getIntHashVectorByHamming( Integer[] x ){
 		int[] result = new int[K];
 		for(int i = 0 ; i < K ; i++){
 			HashFunction func = hashFunctionList.get(i);
@@ -60,7 +56,7 @@ public class HashFunctionVector implements Serializable{
 	 * @param x
 	 * @return LSH Hash Value
 	 */
-	public int[] getIntHashVectorByDense(double[] x){
+	public int[] getIntHashVectorByDense( double[] x ){
 		int[] result = new int[K];
 		for(int i = 0 ; i < K ; i++){
 			HashFunction func = hashFunctionList.get(i);
@@ -74,7 +70,7 @@ public class HashFunctionVector implements Serializable{
 	 * @param x
 	 * @return LSH Hash Value
 	 */
-	public int[] getIntHashVectorBySparse(Map<Integer, ? extends Number> x){
+	public int[] getIntHashVectorBySparse( Map<Integer, ? extends Number> x ){
 		int[] result = new int[K];
 		for(int i = 0 ; i < K ; i++){
 			HashFunction func = hashFunctionList.get(i);
@@ -89,7 +85,7 @@ public class HashFunctionVector implements Serializable{
 	 * @param x
 	 * @return LSH Hash Value
 	 */
-	public String getStringHashVectorByHamming(int[] x){
+	public String getStringHashVectorByHamming( int[] x ){
 		String result = "";
 		for(int i = 0 ; i < K ; i++){
 			HashFunction func = hashFunctionList.get(i);
@@ -103,7 +99,7 @@ public class HashFunctionVector implements Serializable{
 	 * @param x
 	 * @return LSH Hash Value
 	 */
-	public String getStringHashVectorByHamming(Integer[] x){
+	public String getStringHashVectorByHamming( Integer[] x ){
 		String result = "";
 		for(int i = 0 ; i < K ; i++){
 			HashFunction func = hashFunctionList.get(i);
@@ -118,7 +114,7 @@ public class HashFunctionVector implements Serializable{
 	 * @param x
 	 * @return LSH Hash Value
 	 */
-	public String getStringHashVectorByDense(double[] x){
+	public String getStringHashVectorByDense( double[] x ){
 		String result = "";
 		for(int i = 0 ; i < K ; i++){
 			HashFunction func = hashFunctionList.get(i);
@@ -127,7 +123,7 @@ public class HashFunctionVector implements Serializable{
 		return result;
 	}
 	
-	public String getStringHashVectorBySparse(Map<Integer, ? extends Number> x){
+	public String getStringHashVectorBySparse( Map<Integer, ? extends Number> x ){
 		String result = "";
 		for(int i = 0 ; i < K ; i++){
 			HashFunction func = hashFunctionList.get(i);
@@ -135,6 +131,5 @@ public class HashFunctionVector implements Serializable{
 		}
 		return result;
 	}
-
 
 }

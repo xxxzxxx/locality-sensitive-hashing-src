@@ -16,7 +16,7 @@ public class HashFunctionVectorReader {
 	ObjectInputStream ois = null;
 	
 	public void setObjectInputStream( String filePath ) throws IOException{
-		ois = new ObjectInputStream(new FileInputStream(filePath));
+		ois = new ObjectInputStream( new FileInputStream(filePath) );
 	}
 	
 	public HashFunctionVector readObject() throws IOException, ClassNotFoundException{
@@ -24,7 +24,7 @@ public class HashFunctionVectorReader {
 	}
 	
 	public void close() throws IOException{
-		if(ois !=null) ois.close();
+		if(ois != null) ois.close();
 	}
 
 }

@@ -16,7 +16,7 @@ public interface HashFunction extends Serializable{
 	 * @param x データ
 	 * @return　ハッシュ値の要素
 	 */
-	public int getHashValueByHamming(int[] x);
+	public int getHashValueByHamming( int[] x );
 
 	/**
 	 * ハッシュ値を取得します。
@@ -24,7 +24,7 @@ public interface HashFunction extends Serializable{
 	 * @param x データ
 	 * @return　ハッシュ値の要素
 	 */
-	public int getHashValueByHamming(short[] x);
+	public int getHashValueByHamming( short[] x );
 
 	/**
 	 * ハッシュ値を取得します。
@@ -32,7 +32,7 @@ public interface HashFunction extends Serializable{
 	 * @param x データ
 	 * @return　ハッシュ値の要素
 	 */
-	public int getHashValueByHamming(Integer[] x);
+	public int getHashValueByHamming( Integer[] x );
 
 	
 	/**
@@ -41,7 +41,7 @@ public interface HashFunction extends Serializable{
 	 * @param x データ
 	 * @return　ハッシュ値の要素
 	 */
-	public int getHashValueByHamming(Short[] x);
+	public int getHashValueByHamming( Short[] x );
 
 	
 	/**
@@ -51,7 +51,7 @@ public interface HashFunction extends Serializable{
 	 * @param x データ
 	 * @return　ハッシュ値の要素
 	 */
-	public int getHashValueByDense(float[] x);
+	public int getHashValueByDense( float[] x );
 	
 	/**
 	 * ハッシュ値を取得します。
@@ -60,7 +60,7 @@ public interface HashFunction extends Serializable{
 	 * @param x データ
 	 * @return　ハッシュ値の要素
 	 */
-	public int getHashValueByDense(Float[] x);
+	public int getHashValueByDense( Float[] x );
 
 	/**
 	 * ハッシュ値を取得します。
@@ -69,7 +69,7 @@ public interface HashFunction extends Serializable{
 	 * @param x データ
 	 * @return　ハッシュ値の要素
 	 */
-	public int getHashValueByDense(double[] x);
+	public int getHashValueByDense( double[] x );
 
 	/**
 	 * ハッシュ値を取得します。
@@ -78,7 +78,7 @@ public interface HashFunction extends Serializable{
 	 * @param x データ
 	 * @return　ハッシュ値の要素
 	 */
-	public int getHashValueByDense(Double[] x);
+	public int getHashValueByDense( Double[] x );
 
 	/**
 	 * ハッシュ値を取得します。
@@ -86,6 +86,6 @@ public interface HashFunction extends Serializable{
 	 * @param x データ
 	 * @return　ハッシュ値の要素
 	 */
-	public int getHashValueBySparse(Map<Integer,? extends Number> x);
+	public int getHashValueBySparse( Map<Integer, ? extends Number> x );
 
 }

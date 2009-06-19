@@ -11,50 +11,53 @@ import java.security.NoSuchAlgorithmException;
  */
 public class PstableHashMaker {
 	
-	public String hashKeyTransForm(int[] hashVector ,String hfvNum){
+	public String hashKeyTransForm(int[] hashVector, String hfvNum){
 		MessageDigest md5 = null;
 		try{
-			md5= MessageDigest.getInstance("MD5");
-		}catch(NoSuchAlgorithmException e){
+			md5= MessageDigest.getInstance( "MD5" );
+		}
+		catch( NoSuchAlgorithmException e ){
 			System.out.println("MD5 is not to be");
 		}
 		String a ="a";
 		StringBuilder sb = new StringBuilder();
-		sb.append(hfvNum+a);
-		for(int value:hashVector){
-			sb.append(value+a);
+		sb.append( hfvNum + a );
+		for( int value : hashVector ){
+			sb.append( value + a );
 		}
 		byte[] binary = sb.toString().getBytes();
-		byte[] hash = md5.digest(binary);
-		return getHexDigest(hash);
+		byte[] hash   = md5.digest( binary );
+		return getHexDigest( hash );
 	}
 	
-	public String hashKeyTransForm(int[] hashVector ,Integer hfvNum){
+	public String hashKeyTransForm(int[] hashVector, Integer hfvNum){
 		MessageDigest md5 = null;
 		try{
-			md5= MessageDigest.getInstance("MD5");
-		}catch(NoSuchAlgorithmException e){
+			md5 = MessageDigest.getInstance("MD5");
+		}
+		catch(NoSuchAlgorithmException e){
 			System.out.println("MD5 is not to be");
 		}
 		String a ="a";
 		StringBuilder sb = new StringBuilder();
-		sb.append(hfvNum+a);
-		for(int value:hashVector){
-			sb.append(value+a);
+		sb.append( hfvNum + a );
+		for( int value : hashVector ){
+			sb.append( value + a );
 		}
 		byte[] binary = sb.toString().getBytes();
-		byte[] hash = md5.digest(binary);
-
+		byte[] hash   = md5.digest( binary );
+		
 		return getHexDigest(hash);
 	}
 	
 	private String getHexDigest( byte[] digest ){
 		final StringBuffer buf = new StringBuffer("");
-	    for(int i=0; i < digest.length; i++){
+	    for( int i=0 ; i < digest.length ; i++ ){
 	        final int n = digest[i] & 0xFF;
 	        if(n < 16) buf.append("0");
-	        buf.append(Integer.toString(n, 16));
+	        buf.append( Integer.toString(n, 16) );
 	    }
-	    return buf.toString().substring(0,24);
+	    return buf.toString().substring( 0, 24 );
 	}
+	
 }

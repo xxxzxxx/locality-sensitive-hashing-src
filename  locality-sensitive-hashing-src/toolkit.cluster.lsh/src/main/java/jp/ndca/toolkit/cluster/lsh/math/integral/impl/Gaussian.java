@@ -31,9 +31,9 @@ public class Gaussian implements Integral{
 	private double average;
 	
 	public Gaussian(double average , double variance){
-		this.average =  average;
+		this.average  =  average;
 		this.variance = variance;
-		cofficent = 1 / Math.sqrt(2.0 * Math.PI)*variance; 
+		cofficent = 1 / Math.sqrt( 2.0 * Math.PI ) * variance; 
 	}
 	
 	@Override
@@ -41,15 +41,15 @@ public class Gaussian implements Integral{
 		
 		if(start >= end) throw new IntegralIntervalException();
 		this.start = start;
-		this.end = end;
-		double length = end -start;
+		this.end   = end;
+		double length = end - start;
 		
 		//積分領域をmaxstrip以下まで二分割し続ける
-		for( pointNum = 0 ; maxStrip <= length ; pointNum++ ){
+		for( pointNum = 0 ; maxStrip <= length ; pointNum++ )
 			length = length * 0.5;
-		}
+		
 		strip = length;
-		pointNum = Math.pow(2, pointNum-1);
+		pointNum = Math.pow( 2, pointNum - 1 );
 		
 	}
 	
@@ -60,22 +60,22 @@ public class Gaussian implements Integral{
 	public double executeIntegral() {
 		double result = 0.0d;
 		double coffi = strip / 3.0d;
-		result += coffi * ( GaussFanction(start)+GaussFanction(end) );
+		result += coffi * ( GaussFanction(start) + GaussFanction(end) );
 		
 		int i=1;
-		for( ; i <= pointNum-1 ; i++){
-			result += coffi * ( 2.0d * GaussFanction( start+2.0d*i*strip ) 
-								+ 4.0d * GaussFanction( start+(2.0d * i -1.0d)*strip )
-								);
+		for( ; i <= pointNum - 1 ; i++){
+			result += coffi * ( 2.0d * GaussFanction( start + 2.0d * i * strip ) 
+								+ 4.0d * GaussFanction( start + (2.0d * i -1.0d) * strip )
+							  );
 		}
-		result += coffi * 4.0d * GaussFanction( start+(2.0d * i -1.0d)*strip );
+		result += coffi * 4.0d * GaussFanction( start + ( 2.0d * i - 1.0d ) * strip );
 		
 		return result;
 	}
 
-	private double GaussFanction(double x){
-		x = x-average;
-		return cofficent * Math.exp( (-0.5*x*x) / variance );
+	private double GaussFanction( double x ){
+		x = x - average;
+		return cofficent * Math.exp( (-0.5 * x * x) / variance );
 		
 	}
 

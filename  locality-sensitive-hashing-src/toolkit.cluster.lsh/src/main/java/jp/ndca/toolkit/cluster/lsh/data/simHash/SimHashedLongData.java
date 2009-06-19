@@ -20,17 +20,16 @@ public class SimHashedLongData {
 	 * @param limit
 	 * @return 
 	 */
-	public int[] searchWithinThreshhold( long vectorY , int threshold ){
+	public int[] searchWithinThreshold( long vectorY, int threshold ){
 		List<Integer> resultArray = new ArrayList<Integer>();
-		for(int i = 0; i < size() ; i++){
+		for(int i = 0 ; i < size() ; i++){
 			long diff = simHashLongData[i] ^ vectorY;
-			if(bitCount(diff) <= threshold) {
+			if( bitCount(diff) <= threshold )
 				resultArray.add(i);
-			}
 		}
 		int size = resultArray.size();
 		int[] result = new int[size];
-		for(int i = 0 ; i < size ; i++){
+		for( int i = 0 ; i < size ; i++ ){
 			result[i] = resultArray.get(i);
 		}
 		return result;
@@ -41,9 +40,9 @@ public class SimHashedLongData {
 	 * @param limit
 	 * @return 
 	 */
-	public int[] searchBetWeenThreshhold( long vectorY , int start , int end ){
+	public int[] searchBetweenThreshold( long vectorY , int start , int end ){
 		List<Integer> resultArray = new ArrayList<Integer>();
-		for(int i = 0; i < size() ; i++){
+		for( int i = 0 ; i < size() ; i++ ){
 			long diff = simHashLongData[i] ^ vectorY;
 			int num = bitCount(diff);
 			if( num <= end && start <= num ) {
@@ -52,12 +51,11 @@ public class SimHashedLongData {
 		}
 		int size = resultArray.size();
 		int[] result = new int[size];
-		for(int i = 0 ; i < size ; i++){
+		for( int i = 0 ; i < size ; i++ ){
 			result[i] = resultArray.get(i);
 		}
 		return result;
 	}
-
 	
 	/**
 	 * 後で改良する予定
