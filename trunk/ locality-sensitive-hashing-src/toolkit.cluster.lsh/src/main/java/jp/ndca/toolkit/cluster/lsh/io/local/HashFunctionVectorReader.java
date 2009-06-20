@@ -4,7 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
-import jp.ndca.toolkit.cluster.lsh.hash.HashFunctionVector;
+import jp.ndca.toolkit.cluster.lsh.hash.HashFunctionVectorGenerator;
 
 /**
  * ローカルに直列化されているHashFunctionVectorオブジェクトを取得するクラスです。
@@ -19,8 +19,8 @@ public class HashFunctionVectorReader {
 		ois = new ObjectInputStream( new FileInputStream(filePath) );
 	}
 	
-	public HashFunctionVector readObject() throws IOException, ClassNotFoundException{
-		return (HashFunctionVector)ois.readObject();
+	public HashFunctionVectorGenerator readObject() throws IOException, ClassNotFoundException{
+		return (HashFunctionVectorGenerator)ois.readObject();
 	}
 	
 	public void close() throws IOException{

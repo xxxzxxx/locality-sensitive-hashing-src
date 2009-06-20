@@ -2,20 +2,19 @@ package jp.ndca.toolkit.cluster.lsh.hash.simHash;
 
 import java.util.Map;
 
-import jp.ndca.toolkit.cluster.lsh.hash.HashFunctionVector;
+import jp.ndca.toolkit.cluster.lsh.hash.HashFunctionVectorGenerator;
 
 public class SimHashHandlerWrapperLong {
 	
-	private HashFunctionVector hfv;
+	private HashFunctionVectorGenerator hfv;
 	
 	/**
 	 * simHash値として、longを返すHash関数ベクトルを作成するコンストラクタです。
 	 * @param dimension : 元データの次元数
 	 */
 	public SimHashHandlerWrapperLong( int dimension ){
-		SimHashHandler sh = new Cosine_HashFunctionHandler(dimension);
-		sh.makeHashFunctionList(64);
-		hfv = new HashFunctionVector(sh.getHashFunctionList());
+		SimHashHandler sh = new CosineHashFunctionHandler( dimension );
+		hfv = sh.generateHashFunctionVectorGenerator( 64 );
 	}
 	
 	/**
@@ -24,7 +23,7 @@ public class SimHashHandlerWrapperLong {
 	 * @return : simHash値
 	 */
 	public long getSimHashByLong( Map<Integer, ? extends Number> vectorX ){
-		String str = hfv.getStringHashVectorBySparse(vectorX);
+		String str = hfv.getStringHashVectorBySparse( vectorX );
 		return BinaryStringToLong(str);
 	}
 	

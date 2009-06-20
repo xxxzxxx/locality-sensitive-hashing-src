@@ -33,14 +33,14 @@ public class Permutation {
 	        }
 	        public void run() {
 	            ret = BigInteger.ONE;
-	            while ( val.compareTo(BigInteger.ONE ) > 0) {
+	            while (val.compareTo(BigInteger.ONE) > 0) {
 	                ret = ret.multiply(val);
 	                val = val.subtract(TWO);
 	            }
 	        }
 	    }
 	    // (n-1)!!を計算させる。
-	    FactorialThread ft = new FactorialThread( val.subtract(BigInteger.ONE) );
+	    FactorialThread ft = new FactorialThread(val.subtract(BigInteger.ONE));
 	    ft.start();
 	    
 	    // n!!を計算する。
