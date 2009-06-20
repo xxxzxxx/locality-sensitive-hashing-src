@@ -70,15 +70,20 @@ public class PstableDataHammingStoreTest {
 		System.out.println(K);
 		System.out.println(L);
 
-
+		/**
+		 * 検索データの変換
+		 */
 		PstableHandlerWrapper phw = new PstableHandlerWrapper( ph.generateHashFunctionVectorGeneratorList( K, L ) );
 		PstableHammingDataStore pstableDataHammingStore = new PstableHammingDataStore( vectorList, phw );
-
-		int[] query = new int[]{  1,105, 119, 152, 177, 196, 215, 258, 315, 343, 413, 448 };
 		
-		String[] pstableHashes =  phw.getPstableHashes(query);
+		
+		/**
+		 * 検索の実行
+		 */
+		int[] query = new int[]{  1 , 105, 119, 152, 177, 196, 215, 258, 315, 343, 413, 448 };
 
 		long start = System.currentTimeMillis();
+		String[] pstableHashes =  phw.getPstableHashes(query);
 		int[] result = pstableDataHammingStore.search(pstableHashes);
 		long end = System.currentTimeMillis();
 		long diff = end - start;
