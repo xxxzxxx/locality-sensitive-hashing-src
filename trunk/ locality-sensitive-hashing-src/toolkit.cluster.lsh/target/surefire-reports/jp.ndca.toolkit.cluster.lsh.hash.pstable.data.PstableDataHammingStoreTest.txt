@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: jp.ndca.toolkit.cluster.lsh.hash.pstable.data.PstableDataHammingStoreTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.844 sec
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.875 sec

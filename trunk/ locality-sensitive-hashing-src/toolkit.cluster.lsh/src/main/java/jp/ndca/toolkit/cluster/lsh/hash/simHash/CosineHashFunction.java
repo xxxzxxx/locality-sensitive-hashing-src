@@ -1,8 +1,6 @@
 package jp.ndca.toolkit.cluster.lsh.hash.simHash;
 
 import java.util.Map;
-import java.util.Set;
-
 import jp.ndca.toolkit.cluster.lsh.hash.HashFunction;
 
 /**
@@ -130,8 +128,7 @@ public class CosineHashFunction implements HashFunction{
 	@Override	
 	public int getHashValueBySparse(Map<Integer, ? extends Number> x) {
 		double result = 0.0d;
-		Set<Integer> keys = x.keySet();
-		for( Integer key : keys ){
+		for( Integer key : x.keySet() ){
 			result += r[key] * x.get(key).doubleValue();
 		}
 		if(result >= 0)

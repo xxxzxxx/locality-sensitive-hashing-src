@@ -91,19 +91,17 @@ public class PstableDataHammingStoreTest {
 		assertEquals( true, classify(result, 9) );
 		System.out.println(vectorList.size());
 		System.out.println(result.length);
-		System.out.println( diff );
+		System.out.println( diff +"ms" );
 		
 	}
 	
 	private static int[] StringArrayToIntegerArray( String[] array ){
 		int[] intArray = new int[ array.length ];
-	try{
-		for( int i = 0 ; i < array.length ; i++){
-			intArray[i] = Integer.parseInt( array[i].trim() );
-		}
-	}catch(Exception e){
-		System.out.println( array );
-	}
+			for( int i = 0 ; i < array.length ; i++){
+				if(array[i].equals(""))
+					continue;
+				intArray[i] = Integer.parseInt( array[i].trim() );
+			}
 		return intArray;
 	}
 	
