@@ -23,7 +23,7 @@ public class PstableDataHammingStoreTest {
 	
 	
 	@Test
-	public void testSearchi() throws IOException{
+	public void testSearch() throws IOException{
 		
 		/**
 		 * ベクトルデータの読み込み
