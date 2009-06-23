@@ -41,7 +41,7 @@ public class SimHashedLongDataStore {
 	 * @param limit
 	 * @return 
 	 */
-	public int[] searchBetWeenThreshold( long vectorY , int start , int end ){
+	public int[] searchBetweenThreshold( long vectorY , int start , int end ){
 		List<Integer> resultArray = new ArrayList<Integer>();
 		for( int i = 0 ; i < size() ; i++ ){
 			long diff = simHashLongData[i] ^ vectorY;
