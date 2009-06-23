@@ -1,0 +1,39 @@
+-------------------------------------------------------------------------------
+Test set: jp.ndca.toolkit.cluster.lsh.hash.simHash.data.SimHashedLongDataStoreTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.953 sec <<< FAILURE!
+testSearchWithinThreshold(jp.ndca.toolkit.cluster.lsh.hash.simHash.data.SimHashedLongDataStoreTest)  Time elapsed: 1.937 sec  <<< ERROR!
+java.lang.OutOfMemoryError: Java heap space
+	at jp.ndca.toolkit.cluster.lsh.hash.simHash.CosineHashFunctionHandler.makeHashFunction_Vector_r(CosineHashFunctionHandler.java:45)
+	at jp.ndca.toolkit.cluster.lsh.hash.simHash.CosineHashFunctionHandler.newInstanceHashFunction(CosineHashFunctionHandler.java:35)
+	at jp.ndca.toolkit.cluster.lsh.hash.simHash.CosineHashFunctionHandler.generateHashFunctionVectorGenerator(CosineHashFunctionHandler.java:57)
+	at jp.ndca.toolkit.cluster.lsh.hash.simHash.SimHashHandlerWrapperLong.<init>(SimHashHandlerWrapperLong.java:17)
+	at jp.ndca.toolkit.cluster.lsh.hash.simHash.data.SimHashedLongDataStoreTest.testSearchWithinThreshold(SimHashedLongDataStoreTest.java:34)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:44)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:41)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:31)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:44)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:180)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:41)
+	at org.junit.runners.ParentRunner$1.evaluate(ParentRunner.java:173)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:31)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:220)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:62)
+	at org.apache.maven.surefire.suite.AbstractDirectoryTestSuite.executeTestSet(AbstractDirectoryTestSuite.java:140)
+	at org.apache.maven.surefire.suite.AbstractDirectoryTestSuite.execute(AbstractDirectoryTestSuite.java:127)
+	at org.apache.maven.surefire.Surefire.run(Surefire.java:177)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.maven.surefire.booter.SurefireBooter.runSuitesInProcess(SurefireBooter.java:338)
+

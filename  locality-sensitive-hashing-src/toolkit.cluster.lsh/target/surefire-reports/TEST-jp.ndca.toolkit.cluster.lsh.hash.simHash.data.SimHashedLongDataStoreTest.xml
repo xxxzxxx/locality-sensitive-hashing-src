@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.859" errors="0" skipped="0" tests="1" name="jp.ndca.toolkit.cluster.lsh.hash.pstable.data.PstableDataHammingStoreTest">
+<testsuite failures="0" time="1.937" errors="1" skipped="0" tests="1" name="jp.ndca.toolkit.cluster.lsh.hash.simHash.data.SimHashedLongDataStoreTest">
   <properties>
     <property name="java.vendor" value="Sun Microsystems Inc."/>
     <property name="localRepository" value="C:\Documents and Settings\hattori_tsukasa\.m2\repository"/>
@@ -96,5 +96,40 @@
     <property name="java.specification.version" value="1.6"/>
     <property name="env.PROCESSOR_LEVEL" value="6"/>
   </properties>
-  <testcase time="0.844" classname="jp.ndca.toolkit.cluster.lsh.hash.pstable.data.PstableDataHammingStoreTest" name="testSearchi"/>
+  <testcase time="1.937" classname="jp.ndca.toolkit.cluster.lsh.hash.simHash.data.SimHashedLongDataStoreTest" name="testSearchWithinThreshold">
+    <error message="Java heap space" type="java.lang.OutOfMemoryError">java.lang.OutOfMemoryError: Java heap space
+	at jp.ndca.toolkit.cluster.lsh.hash.simHash.CosineHashFunctionHandler.makeHashFunction_Vector_r(CosineHashFunctionHandler.java:45)
+	at jp.ndca.toolkit.cluster.lsh.hash.simHash.CosineHashFunctionHandler.newInstanceHashFunction(CosineHashFunctionHandler.java:35)
+	at jp.ndca.toolkit.cluster.lsh.hash.simHash.CosineHashFunctionHandler.generateHashFunctionVectorGenerator(CosineHashFunctionHandler.java:57)
+	at jp.ndca.toolkit.cluster.lsh.hash.simHash.SimHashHandlerWrapperLong.&lt;init&gt;(SimHashHandlerWrapperLong.java:17)
+	at jp.ndca.toolkit.cluster.lsh.hash.simHash.data.SimHashedLongDataStoreTest.testSearchWithinThreshold(SimHashedLongDataStoreTest.java:34)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:44)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:41)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:31)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:44)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:180)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:41)
+	at org.junit.runners.ParentRunner$1.evaluate(ParentRunner.java:173)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:31)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:220)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:62)
+	at org.apache.maven.surefire.suite.AbstractDirectoryTestSuite.executeTestSet(AbstractDirectoryTestSuite.java:140)
+	at org.apache.maven.surefire.suite.AbstractDirectoryTestSuite.execute(AbstractDirectoryTestSuite.java:127)
+	at org.apache.maven.surefire.Surefire.run(Surefire.java:177)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.maven.surefire.booter.SurefireBooter.runSuitesInProcess(SurefireBooter.java:338)
+</error>
+  </testcase>
 </testsuite>
