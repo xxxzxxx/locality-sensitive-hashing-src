@@ -34,14 +34,13 @@ public class PstableDataHammingStoreTest {
 		
 		List<int[]> vectorList = new ArrayList<int[]>();
 		
-		String line = br.readLine();
-		while(line != null){
+		while( br.ready() ){
+			String line = br.readLine();
 			line = line.substring(1);                  //[を除去
 			line = line.substring(0, line.length()-1); //]を除去
 			String[] numbers = line.split(",");
 			if(numbers.length != 0)
 				vectorList.add( StringArrayToIntegerArray(numbers) );
-			line = br.readLine();
 		}
 		
 		/**
