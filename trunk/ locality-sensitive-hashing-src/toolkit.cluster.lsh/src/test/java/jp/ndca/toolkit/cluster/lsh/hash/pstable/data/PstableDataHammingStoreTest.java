@@ -28,9 +28,8 @@ public class PstableDataHammingStoreTest {
 		/**
 		 * ベクトルデータの読み込み
 		 */
-		BufferedReader br = null;
 		InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream("lsh.txt");
-		br = new BufferedReader( new InputStreamReader(is) );
+		BufferedReader br = new BufferedReader( new InputStreamReader(is) );
 		
 		List<int[]> vectorList = new ArrayList<int[]>();
 		
